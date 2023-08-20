@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import DotNavigation from './components/DotNavigation';
 import HeroSection from './components/sections/HeroSection';
+import SkillsSection from './components/sections/SkillsSection';
 
 
 export default function Home() {
@@ -12,127 +13,73 @@ export default function Home() {
   const totalSections = 4;
 
   useEffect(() => {
-    // Adjusting for accurate viewport height
-    const setVH = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
-
-    // Set the value initially
-    setVH();
-
-    // Update it whenever the window is resized
-    window.addEventListener('resize', setVH);
-
     const container = document.getElementById("fullpage-container") as HTMLElement;
     gsap.registerPlugin(ScrollToPlugin);
 
     document.body.style.overflow = "hidden";
-    let isAnimating = false;
-    let touchStartY = 0;
 
-    const updateSection = () => {
-      const sectionIndex = Math.round(window.scrollY / (window.innerHeight * 0.01 * 100)); // Adjust for the new vh
-      setCurrentSection(sectionIndex);
-    };
+    let isAnimating = false; // Flag to determine if a gsap animation is in progress
 
-    const scrollToSection = (direction: 'up' | 'down') => {
+    const handleWheel = (e: WheelEvent) => {
+      if (isAnimating) return; // Exit if an animation is currently in progress
+
       const currentScrollY = window.scrollY;
       const maxScroll = container.scrollHeight - window.innerHeight;
 
-      if (isAnimating) return;
+      e.preventDefault();
 
       // Stop any current gsap animations on window
       gsap.killTweensOf(window, ["scrollTo", "scrollY"]);
 
-      if (direction === 'down' && currentScrollY < maxScroll) {
+      // Scrolling down
+      if (e.deltaY > 0 && currentScrollY < maxScroll) {
         isAnimating = true;
         gsap.to(window, {
           duration: 1.5,
-          scrollTo: Math.min(currentScrollY + (window.innerHeight * 0.01 * 100), maxScroll), // Adjust for the new vh
+          scrollTo: Math.min(currentScrollY + window.innerHeight, maxScroll),
           ease: "power2",
           onComplete: () => {
-            isAnimating = false;
-            updateSection();
-          },
-          onStart: () => {
-            gsap.delayedCall(0.75, updateSection);
+            isAnimating = false; // Reset flag when animation completes
           }
         });
-      } else if (direction === 'up' && currentScrollY > 0) {
+      }
+      // Scrolling up
+      else if (e.deltaY < 0 && currentScrollY > 0) {
         isAnimating = true;
         gsap.to(window, {
           duration: 1.5,
-          scrollTo: Math.max(currentScrollY - (window.innerHeight * 0.01 * 100), 0), // Adjust for the new vh
+          scrollTo: Math.max(currentScrollY - window.innerHeight, 0),
           ease: "power2",
           onComplete: () => {
-            isAnimating = false;
-            updateSection();
-          },
-          onStart: () => {
-            gsap.delayedCall(0.75, updateSection);
+            isAnimating = false; // Reset flag when animation completes
           }
         });
       }
     };
 
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      if (e.deltaY > 0) {
-        scrollToSection('down');
-      } else {
-        scrollToSection('up');
-      }
-    };
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY = e.touches[0].clientY;
-    };
-
-    const handleTouchEnd = (e: TouchEvent) => {
-      const touchEndY = e.changedTouches[0].clientY;
-      const deltaY = touchEndY - touchStartY;
-
-      if (deltaY < 0) {
-        scrollToSection('down');
-      } else {
-        scrollToSection('up');
-      }
-    };
-
-    container.addEventListener("wheel", handleWheel);
-    container.addEventListener('touchstart', handleTouchStart);
-    container.addEventListener('touchend', handleTouchEnd);
+    container?.addEventListener("wheel", handleWheel, false);
 
     return () => {
-      window.removeEventListener('resize', setVH); // Cleanup event listener
-      container.removeEventListener("wheel", handleWheel);
-      container.removeEventListener('touchstart', handleTouchStart);
-      container.removeEventListener('touchend', handleTouchEnd);
+      // Cleanup
+      container?.removeEventListener("wheel", handleWheel);
     };
-
   }, []);
-
-  console.log("TEST")
 
   return (
     <main >
-      <DotNavigation
-        currentSection={currentSection}
-        totalSections={totalSections}
-        onSectionChange={setCurrentSection}
-      />
       <section id='fullpage-container' className="bg-black w-screen m-0 p-0">
-        <HeroSection />
-        <main className='h-screen'>
-          <h1 className='text-white'>main 2</h1>
-        </main>
-        <main className='h-screen'>
-          <h1 className='text-white'>main 3</h1>
-        </main>
-        <main className='h-screen'>
-          <h1 className='text-white'>main 4</h1>
-        </main>
+        <section className='h-screen'>
+          <HeroSection />
+        </section>
+        <section className='h-screen'>
+          <SkillsSection />
+        </section>
+        <section className='h-screen'>
+          <h1 className='text-white'>section 3</h1>
+        </section>
+        <section className='h-screen'>
+          <h1 className='text-white'>section 4</h1>
+        </section>
       </section>
     </main>
 
