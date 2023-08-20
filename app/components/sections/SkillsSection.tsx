@@ -18,11 +18,11 @@ const SkillsSection: FC<SkillsSectionProps> = ({ }) => {
 
     return (
 
-        <div className='h-vh100 w-full block'>
+        
         <canvas id='canvas' className='h-vh100 w-full block'>
-            <h2 className='text-white z-10'>Hello</h2>
+            
         </canvas>
-        </div>
+       
 
 
 
