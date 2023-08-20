@@ -1365,7 +1365,7 @@ export const FluidSimulation = () => {
     });
 
     canvas.addEventListener('touchstart', (e) => {
-        e.preventDefault();
+        
         const touches = e.targetTouches;
         while (touches.length >= pointers.length) pointers.push(new pointerPrototype());
         for (let i = 0; i < touches.length; i++) {
@@ -1378,7 +1378,7 @@ export const FluidSimulation = () => {
     canvas.addEventListener(
         'touchmove',
         (e) => {
-            e.preventDefault();
+            
             const touches = e.targetTouches;
             for (let i = 0; i < touches.length; i++) {
                 let posX = scaleByPixelRatio(touches[i].pageX);
