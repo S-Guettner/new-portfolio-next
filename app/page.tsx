@@ -8,6 +8,7 @@ import DotNavigation from './components/DotNavigation';
 export default function Home() {
 
   const [currentSection, setCurrentSection] = useState(0);
+  const totalSections = 4;
 
   useEffect(() => {
     const container = document.getElementById("fullpage-container") as HTMLElement;
@@ -28,6 +29,11 @@ export default function Home() {
       // Stop any current gsap animations on window
       gsap.killTweensOf(window, ["scrollTo", "scrollY"]);
 
+      const updateSection = () => {
+        const sectionIndex = Math.round(window.scrollY / window.innerHeight);
+        setCurrentSection(sectionIndex);
+      };
+
       // Scrolling down
       if (e.deltaY > 0 && currentScrollY < maxScroll) {
         isAnimating = true;
@@ -37,6 +43,10 @@ export default function Home() {
           ease: "power2",
           onComplete: () => {
             isAnimating = false; // Reset flag when animation completes
+            updateSection();
+          },
+          onStart: () => {
+            gsap.delayedCall(0.5, () => { updateSection() })
           }
         });
       }
@@ -49,6 +59,10 @@ export default function Home() {
           ease: "power2",
           onComplete: () => {
             isAnimating = false; // Reset flag when animation completes
+            updateSection();
+          },
+          onStart: () => {
+            gsap.delayedCall(0.5, () => { updateSection() })
           }
         });
       }
@@ -65,6 +79,11 @@ export default function Home() {
 
   return (
     <main >
+      <DotNavigation 
+        currentSection={currentSection}
+        totalSections={totalSections}
+        onSectionChange={setCurrentSection}
+      />
       <section id='fullpage-container' className="bg-black w-screen m-0 p-0">
         <main className='h-screen'>
           <h1 className='text-white'>main 1</h1>
