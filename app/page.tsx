@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import DotNavigation from './components/DotNavigation';
+import HeroSection from './components/sections/HeroSection';
 
 
 export default function Home() {
@@ -16,78 +17,100 @@ export default function Home() {
 
     document.body.style.overflow = "hidden";
 
-    let isAnimating = false; // Flag to determine if a gsap animation is in progress
+    let isAnimating = false;
+    let touchStartY = 0;
 
-    const handleWheel = (e: WheelEvent) => {
-      if (isAnimating) return; // Exit if an animation is currently in progress
+    const updateSection = () => {
+      const sectionIndex = Math.round(window.scrollY / window.innerHeight);
+      setCurrentSection(sectionIndex);
+    };
 
+    const scrollToSection = (direction: 'up' | 'down') => {
       const currentScrollY = window.scrollY;
       const maxScroll = container.scrollHeight - window.innerHeight;
 
-      e.preventDefault();
+      if (isAnimating) return;
 
       // Stop any current gsap animations on window
       gsap.killTweensOf(window, ["scrollTo", "scrollY"]);
 
-      const updateSection = () => {
-        const sectionIndex = Math.round(window.scrollY / window.innerHeight);
-        setCurrentSection(sectionIndex);
-      };
-
-      // Scrolling down
-      if (e.deltaY > 0 && currentScrollY < maxScroll) {
+      if (direction === 'down' && currentScrollY < maxScroll) {
         isAnimating = true;
         gsap.to(window, {
           duration: 1.5,
           scrollTo: Math.min(currentScrollY + window.innerHeight, maxScroll),
           ease: "power2",
           onComplete: () => {
-            isAnimating = false; // Reset flag when animation completes
+            isAnimating = false;
             updateSection();
           },
           onStart: () => {
-            gsap.delayedCall(0.5, () => { updateSection() })
+            gsap.delayedCall(0.75, updateSection);
           }
         });
-      }
-      // Scrolling up
-      else if (e.deltaY < 0 && currentScrollY > 0) {
+      } else if (direction === 'up' && currentScrollY > 0) {
         isAnimating = true;
         gsap.to(window, {
           duration: 1.5,
           scrollTo: Math.max(currentScrollY - window.innerHeight, 0),
           ease: "power2",
           onComplete: () => {
-            isAnimating = false; // Reset flag when animation completes
+            isAnimating = false;
             updateSection();
           },
           onStart: () => {
-            gsap.delayedCall(0.5, () => { updateSection() })
+            gsap.delayedCall(0.75, updateSection);
           }
         });
       }
     };
 
-    container?.addEventListener("wheel", handleWheel, false);
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      if (e.deltaY > 0) {
+        scrollToSection('down');
+      } else {
+        scrollToSection('up');
+      }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const deltaY = touchEndY - touchStartY;
+
+      if (deltaY < 0) {
+        scrollToSection('down');
+      } else {
+        scrollToSection('up');
+      }
+    };
+
+    container.addEventListener("wheel", handleWheel);
+    container.addEventListener('touchstart', handleTouchStart);
+    container.addEventListener('touchend', handleTouchEnd);
 
     return () => {
-      // Cleanup
-      container?.removeEventListener("wheel", handleWheel);
+      container.removeEventListener("wheel", handleWheel);
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchend', handleTouchEnd);
     };
+
   }, []);
 
 
   return (
     <main >
-      <DotNavigation 
+      <DotNavigation
         currentSection={currentSection}
         totalSections={totalSections}
         onSectionChange={setCurrentSection}
       />
       <section id='fullpage-container' className="bg-black w-screen m-0 p-0">
-        <main className='h-screen'>
-          <h1 className='text-white'>main 1</h1>
-        </main>
+        <HeroSection />
         <main className='h-screen'>
           <h1 className='text-white'>main 2</h1>
         </main>
