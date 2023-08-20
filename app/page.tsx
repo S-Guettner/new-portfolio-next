@@ -9,9 +9,12 @@ import SkillsSection from './components/sections/SkillsSection';
 
 export default function Home() {
 
+  
+
   const [currentSection, setCurrentSection] = useState(0);
   const totalSections = 4;
-
+  
+  
   useEffect(() => {
     // Adjusting for accurate viewport height
     const setVH = () => {
@@ -130,6 +133,7 @@ export default function Home() {
         </section>
       </section>
     </main>
+
 
   );
 }
