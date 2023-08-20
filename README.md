@@ -1,1 +1,2 @@
 - [] comp sections not 100% centered on mobile
+- [] fluid canvas not triggered on mobile

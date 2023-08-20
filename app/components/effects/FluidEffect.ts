@@ -1384,7 +1384,7 @@ window.addEventListener('mouseup', () => {
 });
 
 canvas.addEventListener('touchstart', (e) => {
-    
+    event.stopPropagation();
     const touches = e.targetTouches;
     while (touches.length >= pointers.length) pointers.push(new pointerPrototype());
     for (let i = 0; i < touches.length; i++) {
@@ -1397,7 +1397,7 @@ canvas.addEventListener('touchstart', (e) => {
 canvas.addEventListener(
     'touchmove',
     (e) => {
-        
+        event.stopPropagation();
         
         const touches = e.targetTouches;
         for (let i = 0; i < touches.length; i++) {
