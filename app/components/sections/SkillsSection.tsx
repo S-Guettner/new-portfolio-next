@@ -17,12 +17,16 @@ const SkillsSection: FC<SkillsSectionProps> = ({ }) => {
     }, [])
 
     return (
-        <main>
-            <canvas id='canvas' className='h-vh100 flex items-center bg-black justify-center'>
-                <h1 className='text-white'>SKILLSSECTION</h1>
-            </canvas>
 
-        </main>
+        <div>
+        <canvas id='canvas' className='h-vh100 w-full block'>
+            <h2 className='text-white z-10'>Hello</h2>
+        </canvas>
+        </div>
+
+
+
+
     )
 }
 

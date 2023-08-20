@@ -5,7 +5,7 @@ export const FluidSimulation = () => {
     
 
 
-
+'use strict';
 
 
 const canvas = document.getElementsByTagName('canvas')[0];
@@ -878,7 +878,7 @@ let bloomFramebuffers = [];
 let sunrays;
 let sunraysTemp;
 
-let ditheringTexture = createTextureAsync('LDR_LLL1_0.png');
+
 
 const blurProgram = new Program(blurVertexShader, blurShader);
 const copyProgram = new Program(baseVertexShader, copyShader);
@@ -1373,7 +1373,6 @@ canvas.addEventListener('mousedown', (e) => {
 
 canvas.addEventListener('mousemove', (e) => {
     let pointer = pointers[0];
-    
     let posX = scaleByPixelRatio(e.offsetX);
     let posY = scaleByPixelRatio(e.offsetY);
     updatePointerMoveData(pointer, posX, posY);
