@@ -101,6 +101,7 @@ export default function Home() {
 
   }, []);
 
+  console.log("TEST")
 
   return (
     <main >
