@@ -15,7 +15,7 @@ export default function Home() {
   const totalSections = 4;
   
   
-  useEffect(() => {
+/*   useEffect(() => {
     // Adjusting for accurate viewport height
     const setVH = () => {
       const vh = window.innerHeight * 0.01;
@@ -115,7 +115,7 @@ export default function Home() {
       container.removeEventListener('touchend', handleTouchEnd);
     };
 
-  }, []);
+  }, []); */
   return (
     <main >
       <section id='fullpage-container' className="bg-black w-screen m-0 p-0">
