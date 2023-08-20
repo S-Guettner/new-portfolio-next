@@ -116,16 +116,16 @@ export default function Home() {
   return (
     <main >
       <section id='fullpage-container' className="bg-black w-screen m-0 p-0">
-        <section className='h-screen'>
+        <section className='h-vh100'>
           <HeroSection />
         </section>
-        <section className='h-screen'>
+        <section className='h-vh100'>
           <SkillsSection />
         </section>
-        <section className='h-screen'>
+        <section className='h-vh100'>
           <h1 className='text-white'>section 3</h1>
         </section>
-        <section className='h-screen'>
+        <section className='h-vh100'>
           <h1 className='text-white'>section 4</h1>
         </section>
       </section>
