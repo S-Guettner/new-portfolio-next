@@ -1397,6 +1397,7 @@ canvas.addEventListener(
     'touchmove',
     (e) => {
         e.preventDefault();
+         e.stopPropagation();
         const touches = e.targetTouches;
         for (let i = 0; i < touches.length; i++) {
             let pointer = pointers[i + 1];
