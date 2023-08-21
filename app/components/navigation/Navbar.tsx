@@ -35,14 +35,14 @@ const Navbar: FC<NavbarProps> = ({ currentSection, totalSections, onSectionChang
 
     const navHandler = (i: number) => {
         navigateToSection(i)
-
+        setMenuStatus(false)
     }
 
 
 
     return (
         <section>
-            <nav className='text-[#5ef0d0] flex justify-between items-center px-4 pt-4 pb-2 mb-5'>
+            <nav className='text-[#5ef0d0] flex justify-between items-center px-4 pt-4 pb-2 mb-2'>
                 {/* LOGO */}
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="3.5rem" width="3.5rem" xmlns="http://www.w3.org/2000/svg">
                     <path className='draw' d="M5.1 1L1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z" stroke="currentColor" strokeWidth="0.5" fill="none"></path>
@@ -59,10 +59,10 @@ const Navbar: FC<NavbarProps> = ({ currentSection, totalSections, onSectionChang
             {menuStatus && (
                 <div className={` text-center fadeIn bg-background border border-green p-4 rounded-3xl m-2`}>
                     <div className=' flex justify-evenly gap-4 right-0 top-10  rounded-b-3xl p-5 border-green'>
-                        <p onClick={() => navigateToSection(0)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;About/&gt;</p>
-                        <p onClick={() => navigateToSection(1)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Skills/&gt;</p>
-                        <p onClick={() => navigateToSection(2)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Projects/&gt;</p>
-                        <p onClick={() => navigateToSection(3)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Contact/&gt;</p>
+                        <p onClick={() => navHandler(0)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;About/&gt;</p>
+                        <p onClick={() => navHandler(1)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Skills/&gt;</p>
+                        <p onClick={() => navHandler(2)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Projects/&gt;</p>
+                        <p onClick={() => navHandler(3)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Contact/&gt;</p>
                     </div>
                     <div className='flex justify-center'>
                         <button className='resume-button mr-0 p-2 border rounded-xl text-green border-green shadow-greenrounded-2xl '>
