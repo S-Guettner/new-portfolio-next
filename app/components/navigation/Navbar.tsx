@@ -17,7 +17,7 @@ const Navbar: FC<NavbarProps> = ({ }) => {
                     <text x="8" y="9"  fontSize="6" fill="currentColor" textAnchor="middle" dominantBaseline="middle">SG</text>
                 </svg>
 
-                <div className={`py-4 pt-7 flex flex-col justify-between w-12 h-16 cursor-pointer ${menuStatus ? 'relative ' : ''}`} onClick={() => setMenuStatus(prev => !prev)}>
+                <div className={`py-4 pt-5 flex flex-col justify-between w-12 h-16 cursor-pointer ${menuStatus ? 'relative ' : ''}`} onClick={() => setMenuStatus(prev => !prev)}>
                     <div className={` h-0.5 bg-current transition-all  duration-1000 ${menuStatus ? 'transform rotate-45 absolute w-[70%]' : 'w-[80%]'}`}></div>
                     <div className={`w-[70%] h-0.5 bg-current transition-opacity duration-400 ${menuStatus ? 'opacity-0' : ''}`}></div>
                     <div className={` h-0.5 bg-current transition-all  duration-1000 ${menuStatus ? 'transform -rotate-45 w-[70%] absolute' : 'w-[60%]'}`}></div>

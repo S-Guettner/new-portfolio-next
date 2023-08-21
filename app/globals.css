@@ -17,5 +17,5 @@
 .draw {
     stroke-dasharray: 69;
     stroke-dashoffset: 69;
-    animation: draw 3s forwards;
+    animation: draw 8s forwards;
 }
