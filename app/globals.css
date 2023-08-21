@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,3 +37,42 @@
 .hover-underline-animation:hover::after {
     width: 100%;
 }
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-timing-function: ease-in;
+    animation-duration: 0.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Für das nach und nach Einblenden der p-Elemente */
+.slideFadeIn {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation-name: slideFadeIn;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards; /* behält den Zustand der Animation bei */
+}
+
+@keyframes slideFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Verzögerung für jedes Element hinzufügen */
+.slideFadeIn:nth-child(1) { animation-delay: 0.5s; } /* Startet nachdem das Menü erscheint */
+.slideFadeIn:nth-child(2) { animation-delay: 0.7s; }
+.slideFadeIn:nth-child(3) { animation-delay: 0.9s; }
+.slideFadeIn:nth-child(4) { animation-delay: 1.1s; }
+

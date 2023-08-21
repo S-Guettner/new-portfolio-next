@@ -117,7 +117,7 @@ export default function Home() {
 
   }, []);
   return (
-    <main>
+    <main className='font-roboto'>
       <DotNavigation
         currentSection={currentSection}
         totalSections={totalSections}
@@ -125,7 +125,11 @@ export default function Home() {
       />
       <section id='fullpage-container' className="bg-black w-full m-0 p-0">
         <section className='h-vh100'>
-          <HeroSection />
+          <HeroSection 
+            currentSection={currentSection}
+            totalSections={totalSections}
+            onSectionChange={setCurrentSection}
+          />
         </section>
         <section className='h-vh100'>
           <SkillsSection
