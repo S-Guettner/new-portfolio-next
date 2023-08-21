@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import DotNavigation from './components/DotNavigation';
+import DotNavigation from './components/navigation/DotNavigation';
 import HeroSection from './components/sections/HeroSection';
 import SkillsSection from './components/sections/SkillsSection';
 
@@ -117,18 +117,25 @@ export default function Home() {
 
   }, []); 
   return (
-    <main >
+    <main>
+      <DotNavigation 
+        currentSection={currentSection}
+        totalSections={totalSections}
+        onSectionChange={setCurrentSection}
+      />
       <section id='fullpage-container' className="bg-black w-full m-0 p-0">
         <section className='h-vh100'>
           <HeroSection />
         </section>
         <section className='h-vh100'>
-          <SkillsSection />
+          <SkillsSection 
+            currentSection={currentSection}
+          />
         </section>
-        <section className='h-vh100'>
+        <section className='h-vh100 bg-[#0a192f]'>
           <h1 className='text-white'>section 3</h1>
         </section>
-        <section className='h-vh100'>
+        <section className='h-vh100 bg-[#0a192f]'>
           <h1 className='text-white'>section 4</h1>
         </section>
       </section>

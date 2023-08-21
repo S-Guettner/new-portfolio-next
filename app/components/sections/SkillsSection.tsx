@@ -3,10 +3,10 @@ import { FC, useEffect } from 'react'
 import { FluidSimulation } from '../effects/FluidEffect'
 
 interface SkillsSectionProps {
-
+    currentSection:number
 }
 
-const SkillsSection: FC<SkillsSectionProps> = ({ }) => {
+const SkillsSection: FC<SkillsSectionProps> = ({ currentSection }) => {
 
     useEffect(() => {
         const canvas = document.getElementById('canvas');
@@ -14,7 +14,7 @@ const SkillsSection: FC<SkillsSectionProps> = ({ }) => {
         if (canvas) {
             FluidSimulation();
         }
-    }, [])
+    }, [currentSection])
 
     return (
 
