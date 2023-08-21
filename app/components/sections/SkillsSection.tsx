@@ -12,7 +12,9 @@ const SkillsSection: FC<SkillsSectionProps> = ({ currentSection }) => {
         const canvas = document.getElementById('canvas');
 
         if (canvas) {
-            FluidSimulation();
+            setTimeout(() => {
+                FluidSimulation();
+            }, 2000);
         }
     }, [currentSection])
 

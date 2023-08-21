@@ -9,13 +9,13 @@ import SkillsSection from './components/sections/SkillsSection';
 
 export default function Home() {
 
-  
+
 
   const [currentSection, setCurrentSection] = useState(0);
   const totalSections = 4;
-  
-  
-   useEffect(() => {
+
+
+  useEffect(() => {
     // Adjusting for accurate viewport height
     const setVH = () => {
       const vh = window.innerHeight * 0.01;
@@ -115,10 +115,10 @@ export default function Home() {
       container.removeEventListener('touchend', handleTouchEnd);
     };
 
-  }, []); 
+  }, []);
   return (
     <main>
-      <DotNavigation 
+      <DotNavigation
         currentSection={currentSection}
         totalSections={totalSections}
         onSectionChange={setCurrentSection}
@@ -128,15 +128,15 @@ export default function Home() {
           <HeroSection />
         </section>
         <section className='h-vh100'>
-          <SkillsSection 
+          <SkillsSection
             currentSection={currentSection}
           />
         </section>
-        <section className='h-vh100 bg-[#0a192f]'>
-          <h1 className='text-white'>section 3</h1>
+        <section className='h-vh100 bg-background'>
+          <h1 className='text-text'>section 3</h1>
         </section>
-        <section className='h-vh100 bg-[#0a192f]'>
-          <h1 className='text-white'>section 4</h1>
+        <section className='h-vh100 bg-background'>
+          <h1 className='text-text'>section 4</h1>
         </section>
       </section>
     </main>

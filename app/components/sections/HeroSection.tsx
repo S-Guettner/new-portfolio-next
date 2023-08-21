@@ -7,10 +7,13 @@ interface HeroSectionProps {
 
 const HeroSection: FC<HeroSectionProps> = ({ }) => {
     return (
-        <main className='h-vh100  bg-[#0a192f]'>
+        <main className='h-vh100  bg-background'>
             <Navbar />
-            <p className='text-white'>Hi, my name is</p>
-            <h1 className='text-white'>Sven Güttner.</h1>
+            <p className='text-textLarge'>Hi, my name is</p>
+            <h1 className='text-text mb-20'>Sven Güttner.</h1>
+            <div className='text-text'>
+                dwdawd
+            </div>
         </main>
     )
 }
