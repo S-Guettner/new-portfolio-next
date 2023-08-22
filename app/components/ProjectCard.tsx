@@ -8,7 +8,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ currentCard }) => {
     if (currentCard === 0){
         return (
             <main className='h-60 bg-white bg-opacity-10 rounded-xl shadow-2xl backdrop-blur-md p-4'>
-                <p className='text-textLarge'>HELLLOO11111111111111</p>
+                <p className='text-textLarge'>code-career</p>
             </main>
         )
     }
