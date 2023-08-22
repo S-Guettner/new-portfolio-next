@@ -1,2 +1,4 @@
 - [] comp sections not 100% centered on mobile
 - [] fluid canvas not triggered on mobile
+- [] upload updated cv and add link in resume button
+- [] content for hero section img ? etc.
