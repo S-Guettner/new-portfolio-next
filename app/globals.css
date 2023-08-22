@@ -93,3 +93,30 @@
 .slideFadeIn:nth-child(10) { animation-delay: 2.3s; }
 .slideFadeIn:nth-child(11) { animation-delay: 2.5s; }
 
+
+/* projects card slide  */
+.card-slider {
+    position: relative;
+    overflow: hidden;
+}
+.card-slider > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+}
+.project-card-slide-enter {
+    transform: translateX(100%);
+}
+.project-card-slide-enter-active {
+    transform: translateX(0);
+    transition: transform 500ms;
+}
+.project-card-slide-exit {
+    transform: translateX(0);
+}
+.project-card-slide-exit-active {
+    transform: translateX(-100%);
+    transition: transform 500ms;
+}

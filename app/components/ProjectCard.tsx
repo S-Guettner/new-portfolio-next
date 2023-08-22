@@ -22,7 +22,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ currentCard }) => {
     else if (currentCard === 2){
         return(
             <main className='h-60 bg-white bg-opacity-10 rounded-xl shadow-2xl backdrop-blur-md p-4'>
-                <p className='text-textLarge'>HELLLOO 333333333333333333333</p>
+                <p className='text-textLarge'>HELLLOO 33333333333333333333</p>
             </main>
         )
     }
