@@ -5,6 +5,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import DotNavigation from './components/navigation/DotNavigation';
 import HeroSection from './components/sections/HeroSection';
 import SkillsSection from './components/sections/SkillsSection';
+import ProjectSection from './components/sections/ProjectSection';
 
 
 export default function Home() {
@@ -125,7 +126,7 @@ export default function Home() {
       />
       <section id='fullpage-container' className="bg-black w-full m-0 p-0">
         <section className='h-vh100'>
-          <HeroSection 
+          <HeroSection
             currentSection={currentSection}
             totalSections={totalSections}
             onSectionChange={setCurrentSection}
@@ -137,7 +138,7 @@ export default function Home() {
           />
         </section>
         <section className='h-vh100 bg-background'>
-          <h1 className='text-text'>section 3</h1>
+            <ProjectSection />
         </section>
         <section className='h-vh100 bg-background'>
           <h1 className='text-text'>section 4</h1>
