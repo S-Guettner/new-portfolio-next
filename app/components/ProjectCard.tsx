@@ -10,11 +10,22 @@ interface ProjectCardProps {
 const ProjectCard: FC<ProjectCardProps> = ({ currentCard }) => {
     if (currentCard === 0) {
         return (
-            <main className='h-60  justify-between bg-white bg-opacity-10 rounded-xl shadow-2xl backdrop-blur-md p-4'>
+            <main className=' justify-between pb-8 bg-white bg-opacity-10 rounded-xl shadow-2xl backdrop-blur-md p-4'>
                 <h2 className='text-textLarge mb-2 text-2xl'>code-career</h2>
-                <p className='text-text mb-5'>Code-Career" is a job platform tailored for IT professionals. I've built it to simplify the job search in the tech world. Find your next IT role with ease at Code-Career.</p>
-                <Link href={"https://code-career.vercel.app/"}>
-                    <p className='text-green resume-button inline border border-green p-2 rounded'>Visit the Project</p>
+                <p className='text-text mb-2'>Code-Career" is a job platform tailored for IT professionals. I've built it to simplify the job search in the tech world. Find your next IT role with ease at Code-Career.</p>
+                <p className='text-green '>&lt;Stack&gt;</p>
+                <div className='my-2'>
+                    <p className='pl-6 text-textLarge'>- Next.js</p>
+                    <p className='pl-6 text-textLarge'>- NextAuth</p>
+                    <p className='pl-6 text-textLarge'>- Tailwind CSS ❤️</p>
+                    <p className='pl-6 text-textLarge'>- MongoDB</p>
+                    <p className='pl-6 text-textLarge'>- Mongoose</p>
+                </div>
+                <p className='text-green mb-8'>&lt;/Stack&gt;</p>
+
+
+                <Link  href={"https://code-career.vercel.app/"}>
+                    <p className='text-green resume-button inline border border-green p-2  rounded'>Visit the Project</p>
                 </Link>
             </main>
         )
