@@ -2,3 +2,4 @@
 - [] fluid canvas not triggered on mobile
 - [] upload updated cv and add link in resume button
 - [] content for hero section img ? etc.
+- [] dot nav not visible at skillsSection
