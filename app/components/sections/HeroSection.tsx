@@ -23,7 +23,7 @@ const HeroSection: FC<HeroSectionProps> = ({ currentSection, totalSections, onSe
                 onSectionChange={onSectionChange}
             />
 
-            <section className='p-4 pb-0 mb-4 pt-10'>
+            <section className='p-4 pb-0 mb-4 '>
                 <p className='text-green mb-2'>&lt;About&gt;</p>
                 <p className=' text-green pl-4 mb-1'>Hi, my name is</p>
                 <h1 className='text-textLarge text-3xl mb-1 font-bold pl-4'><span className='text-green'>&lt;</span>Sven Güttner <span className='text-green'>/&gt;</span> </h1>
@@ -36,8 +36,8 @@ const HeroSection: FC<HeroSectionProps> = ({ currentSection, totalSections, onSe
                 <section className='flex justify-center'>
                     <Image
                         src={portrait}
-                        height={270}
-                        width={270}
+                        height={20}
+                        width={250}
                         alt='image of me'
                     />
                 </section>
