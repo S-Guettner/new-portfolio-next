@@ -57,7 +57,7 @@ const Navbar: FC<NavbarProps> = ({ currentSection, totalSections, onSectionChang
             </nav>
             {/* mobile menu */}
             {menuStatus && (
-                <div className={` text-center fadeIn bg-background border border-green p-4 rounded-3xl m-2`}>
+                <div className={` text-center fadeIn bg-background border border-green p-2 rounded-3xl m-2`}>
                     <div className=' flex justify-evenly gap-4 right-0 top-10  rounded-b-3xl p-5 border-green'>
                         <p onClick={() => navHandler(0)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;About/&gt;</p>
                         <p onClick={() => navHandler(1)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Skills/&gt;</p>

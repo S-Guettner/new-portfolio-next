@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import Image from 'next/image'
 import codeCareer from '../../public/projectImages/code-career.png'
+import portfolio from '../../public/projectImages/portfolio.png'
+import circles from '../../public/projectImages/circles.png'
 import Link from 'next/link'
 
 interface ProjectCardProps {
@@ -35,10 +37,11 @@ const ProjectCard: FC<ProjectCardProps> = ({ currentCard }) => {
                     </section>
                 </section>
 
-
-                <Link href={"https://code-career.vercel.app/"}>
-                    <p className='text-green resume-button inline border border-green p-2  rounded'>Visit the Project</p>
-                </Link>
+                <div className='flex justify-between'>
+                    <Link className='navButton' href={"https://code-career.vercel.app/"}>
+                        <p className='text-green resume-button inline border border-green p-2  rounded'>Visit the Project</p>
+                    </Link>
+                </div>
             </main>
         )
     }
@@ -51,7 +54,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ currentCard }) => {
                     <section className='flex justify-evenly '>
                         <div className=''>
                             <Image
-                                src={codeCareer}
+                                src={portfolio}
                                 width={100}
                                 height={100}
                                 alt='Logo Code-career'
@@ -68,16 +71,43 @@ const ProjectCard: FC<ProjectCardProps> = ({ currentCard }) => {
                 </section>
 
 
-                <Link href={"https://code-career.vercel.app/"}>
-                    <p className='text-green resume-button inline border border-green p-2  rounded'>Visit the Project</p>
+                <Link className='navButton' href={"https://github.com/S-Guettner/new-portfolio-next"}>
+                    <p className='text-green resume-button inline border border-green p-2  rounded'>Visit code</p>
                 </Link>
             </main>
         )
     }
     else if (currentCard === 2) {
         return (
-            <main className='h-60 bg-white bg-opacity-10 rounded-xl shadow-2xl backdrop-blur-md p-4'>
-                <p className='text-textLarge'>HELLLOO 33333333333333333333</p>
+            <main className=' justify-between pb-8 bg-white bg-opacity-10 rounded-xl shadow-2xl backdrop-blur-md p-4'>
+                <h2 className='text-textLarge mb-2 text-2xl'>Circles Social App</h2>
+                <p className='text-text mb-2'>Built with a passionate team using React Native, "Circle" is a streamlined social app for both Android and iOS. Users can easily connect, chat, and customize profiles. .</p>
+                <section className='my-5'>
+                    <section className='flex justify-evenly '>
+                        <div className=''>
+                            <Image
+                                src={circles}
+                                width={90}
+                                height={90}
+                                alt='Logo Code-career'
+                            />
+                        </div>
+                        <div className='pt-3'>
+                            <p className='text-green '>&lt;Stack&gt;</p>
+                            <p className='pl-6 text-textLarge'>- React Native</p>
+                            <p className='pl-6 text-textLarge'>- Node.js</p>
+                            <p className='pl-6 text-textLarge'>- Express</p>
+                            <p className='pl-6 text-textLarge'>- MongoDB</p>
+                            <p className='pl-6 text-textLarge'>- Mongoose</p>
+                            <p className='text-green mb-8'>&lt;/Stack&gt;</p>
+                        </div>
+                    </section>
+                </section>
+
+
+                <Link className='navButton' href={"https://github.com/S-Guettner/expo-circle-frontend"}>
+                    <p className='text-green resume-button inline border border-green p-2  rounded'>Visit code</p>
+                </Link>
             </main>
         )
     }

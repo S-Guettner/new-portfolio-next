@@ -30,7 +30,7 @@ const SkillsSection: FC<SkillsSectionProps> = ({ currentSection }) => {
     return (
 
         <main className='relative'>
-            <section className='text-white absolute pt-3'>
+            <section className='text-white absolute pt-3 '>
                 <section className='p-4 pb-0 mb-4 '>
                     <p className='text-green mb-2'>&lt;Skills&gt;</p>
                     <h1 className='text-textLarge text-2xl mb-1 font-bold pl-4'><span className='text-green'>&lt;</span>Coding Craftsmanship <span className='text-green'>/&gt;</span> </h1>
