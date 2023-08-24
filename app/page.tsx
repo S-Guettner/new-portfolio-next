@@ -95,6 +95,12 @@ export default function Home() {
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
+      const target = e.target as HTMLElement;
+
+      if (target.closest('.navButton')) {
+        return;
+      }
+
       const touchEndY = e.changedTouches[0].clientY;
       const deltaY = touchEndY - touchStartY;
 

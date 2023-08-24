@@ -14,7 +14,7 @@ const SkillsSection: FC<SkillsSectionProps> = ({ currentSection }) => {
     useEffect(() => {
         const canvas = document.getElementById('canvas');
 
-        if (canvas) {
+        if (currentSection === 1) {
             setTimeout(() => {
                 FluidSimulation();
             }, 1000);
