@@ -113,7 +113,6 @@ const SkillsSection: FC<SkillsSectionProps> = ({ currentSection }) => {
                         <p className='text-green '>&lt;p&gt;</p>
                         <p className='text-text mb-2'>Venturing deep into the world of modern web development, I harness the reactive power of React, the server-side magic of Next.js, and the strong-typing benefits of TypeScript.</p>
                         <p className='text-text mb-2'>MongoDB enables precision in my data management. My designs are elevated with the utility-first charm of Tailwind ❤️.</p>
-                        <p className='text-text'>With Git, I meticulously track and manage every code evolution. These tools empower me to deliver dynamic, efficient, and user-centric web solutions.</p>
                         <p className='text-green '>&lt;/p&gt;</p>
                     </section>
                     <p className='text-green'>&lt;/Skills&gt;</p>
