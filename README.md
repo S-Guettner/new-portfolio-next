@@ -3,4 +3,5 @@
 - [] upload updated cv and add link in resume button
 - [] content for hero section img ? etc.
 - [] dot nav not visible at skillsSection
+- [] nav arrows bigger at skillsSection
 - [x] lang. animation starts when page is entered not section ****working but not perfect
