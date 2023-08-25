@@ -24,7 +24,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
            TextBody: message,
            MessageStream: 'outbound',
        });
-
+       console.log("working")
         return NextResponse.json({ name, email, message }, { status: 200 });
     } catch (err) {
         console.error('Error in POST route:', err);

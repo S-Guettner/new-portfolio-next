@@ -30,7 +30,7 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
         setSubmitting(true);
 
         try {
-            const response = await axios.post('/api/sendEmail', formData);
+            const response = await axios.post('/api/send', formData);
             if (response.status === 200) {
                 setSuccess(true);
             } else {
