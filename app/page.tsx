@@ -6,6 +6,7 @@ import DotNavigation from './components/navigation/DotNavigation';
 import HeroSection from './components/sections/HeroSection';
 import SkillsSection from './components/sections/SkillsSection';
 import ProjectSection from './components/sections/ProjectSection';
+import ContactSection from './components/sections/ContactSection';
 
 
 export default function Home() {
@@ -147,7 +148,7 @@ export default function Home() {
             <ProjectSection />
         </section>
         <section className='h-vh100 bg-background'>
-          <h1 className='text-text'>section 4</h1>
+          <ContactSection />
         </section>
       </section>
     </main>
