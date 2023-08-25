@@ -1,11 +1,50 @@
 'use client'
 import { FC,useRef,useState } from 'react'
+import axios from 'axios'
 
 interface ContactSectionProps {
 
 }
 
 const ContactSection: FC<ContactSectionProps> = ({ }) => {
+    
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+
+    const [submitting, setSubmitting] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setSubmitting(true);
+
+        try {
+            const response = await axios.post('/api/sendEmail', formData);
+            if (response.status === 200) {
+                setSuccess(true);
+            } else {
+                setError('Failed to send message.');
+            }
+        } catch (err) {
+            setError( 'An error occurred.');
+        } finally {
+            setSubmitting(false);
+        }
+    }
+
+    
+    
     return (
         <main className='h-vh100 bg-background'>
 
@@ -19,13 +58,13 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
                 <p className='text-green pl-6 '>&lt;/p&gt;</p>
                 <p className='text-green pl-6 '>&lt;form&gt;</p>
                 <section>
-                    <form className='flex flex-col items-center gap-y-1 mb-4' action="submit">
+                    <form className='flex flex-col items-center gap-y-1 mb-4' onSubmit={handleSubmit} >
                         <label className='block text-textLarge text-center' htmlFor="name">Name</label>
-                        <input className='w-3/4 rounded-2xl p-2 bg-text navButton' type="text" name="name" id="name" />
+                        <input onChange={handleChange} value={formData.name} className='w-3/4 rounded-2xl p-2 bg-text navButton' type="text" name="name" id="name" />
                         <label className='block text-textLarge text-center' htmlFor="email">Email</label>
-                        <input className='w-3/4 rounded-2xl p-2 navButton bg-text' type="email" name="email" id="email" />
+                        <input onChange={handleChange} value={formData.email} className='w-3/4 rounded-2xl p-2 navButton bg-text' type="email" name="email" id="email" />
                         <label className='block text-textLarge text-center' htmlFor="message">Message</label>
-                        <textarea className='rounded-2xl navButton bg-text mb-5 w-3/4' name="message" id="message" cols={33} rows={5}></textarea>
+                        <textarea onChange={handleChange} value={formData.message} className='rounded-2xl navButton bg-text mb-5 w-3/4' name="message" id="message" cols={33} rows={5}></textarea>
                         <button className='border border-green text-green py-2 px-10 rounded-2xl resume-button' type="submit" >Submit</button>
                     </form>
                 </section>
@@ -36,5 +75,4 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
         </main>
     )
 }
-
 export default ContactSection
