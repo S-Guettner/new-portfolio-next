@@ -15,7 +15,7 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
     });
 
     const [submitting, setSubmitting] = useState(false);
-    const [success, setSuccess] = useState(true);
+    const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
 
     const [errorMessage, setErrorMessage] = useState("")
@@ -63,18 +63,18 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
     return (
         <main className='h-vh100 bg-background'>
 
-            <section className='p-4 pb-0 mb-4 md:p-20'>
+            <section className='p-4 pb-0 mb-4 md:p-20 lg:px-36 lg:pt-20 2xl:px-[25rem]'>
                 <p className='text-green mb-2 md:text-lg'>&lt;Contact&gt;</p>
-                <h1 className='text-textLarge text-3xl mb-1 font-bold pl-4 md:text-[2rem]'><span className='text-green'>&lt;</span>Send me a message <span className='text-green'>/&gt;</span> </h1>
-                <p className='text-green pl-6 md:text-lg'>&lt;p&gt;</p>
+                <h1 className='text-textLarge text-3xl mb-1 font-bold pl-4 md:text-[1.5rem]'><span className='text-green'>&lt;</span>Send me a message <span className='text-green'>/&gt;</span> </h1>
+                <p className='text-green pl-6 md:text-md'>&lt;p&gt;</p>
                 <div className='text-text'>
-                    <p className='pl-8 md:text-[1.5rem] md:my-4'>Are you looking to hire a motivated developer? I'm open to new roles and projects. Use the form below to reach out, and let's discuss how I can add value to your team.</p>
+                    <p className='pl-8 md:text-[1rem] md:my-4 xl:pr-[35rem]'>Are you looking to hire a motivated developer? I'm open to new roles and projects. Use the form below to reach out, and let's discuss how I can add value to your team.</p>
                 </div>
-                <p className='text-green pl-6 md:text-lg'>&lt;/p&gt;</p>
-                <p className='text-green pl-6 md:text-lg'>&lt;form&gt;</p>
+                <p className='text-green pl-6 md:text-md'>&lt;/p&gt;</p>
+                <p className='text-green pl-6 md:text-md'>&lt;form&gt;</p>
                 {!success && (
                     <section>
-                        <form className='flex flex-col items-center gap-y-1 mb-4' onSubmit={handleSubmit} >
+                        <form className='flex flex-col items-center gap-y-1 mb-4 xl:w-1/2 xl:mx-auto' onSubmit={handleSubmit} >
                             <label className='block text-textLarge text-center md:text-lg' htmlFor="name">Name</label>
                             <input onChange={handleChange} value={formData.name} className={`w-3/4 rounded-2xl p-2 border border-green focus:outline-none text-green  bg-text navButton ${errorMessage === "Name missing" ? errorClass : ""}`} type="text" name="name" id="name" />
                             <label className='block text-textLarge text-center md:text-lg' htmlFor="email">Email</label>
@@ -90,8 +90,8 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
                     </section>
                 )}
                 {success && (
-                    <section className=' pt-6 px-14 my-10 mx-5 text-center bg-white bg-opacity-10 rounded-xl shadow-2xl backdrop-blur-md p-4 md:py-10'>
-                        <p className='text-textLarge mb-4 md:text-2xl md:mb-8'>Thank you for getting in touch with me!</p>
+                    <section className=' pt-6 px-14 my-10 mx-5 text-center bg-white bg-opacity-10 rounded-xl shadow-2xl backdrop-blur-md p-4 md:py-10 xl:w-1/2 xl:mx-auto'>
+                        <p className='text-textLarge mb-4 md:text-xl md:mb-8'>Thank you for getting in touch with me!</p>
                         <svg
                         
                             stroke="currentColor"
@@ -122,11 +122,11 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
                                 clipRule="evenodd"
                             ></path>
                         </svg>
-                        <p className='text-textLarge mb-5 md:text-xl'>I'll get back to you as soon as possible.</p>
-                        <p className='text-textLarge md:text-xl'>Have a great day!</p>
+                        <p className='text-textLarge mb-5 md:text-lg'>I'll get back to you as soon as possible.</p>
+                        <p className='text-textLarge md:text-lg'>Have a great day!</p>
                     </section>
                 )}
-                <p className='text-green pl-6 md:text-lg'>&lt;/form&gt;</p>
+                <p className='text-green pl-6 md:text-md'>&lt;/form&gt;</p>
                 <p className='text-green md:text-lg'>&lt;/Contact&gt;</p>
             </section>
 
