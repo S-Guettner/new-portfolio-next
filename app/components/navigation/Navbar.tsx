@@ -3,6 +3,7 @@ import { FC, useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
+
 interface NavbarProps {
     currentSection: number
     totalSections: number
@@ -61,6 +62,11 @@ const Navbar: FC<NavbarProps> = ({ currentSection, totalSections, onSectionChang
                         <button onClick={() => navHandler(1)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn '>&lt;Skills/&gt;</button>
                         <button onClick={() => navHandler(2)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn '>&lt;Projects/&gt;</button>
                         <button onClick={() => navHandler(3)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn '>&lt;Contact/&gt;</button>
+                        <a href="https://ik.imagekit.io/6sicju8qu/cv.pdf?updatedAt=1693069395988" target="_blank" rel="noopener noreferrer">
+                            <button className='resume-button mr-0 p-2 border rounded-xl text-green border-green shadow-greenrounded-2xl md:text-lg'>
+                                Resume
+                            </button>
+                        </a>
                     </nav>
                 </div>
             </nav>
@@ -75,9 +81,11 @@ const Navbar: FC<NavbarProps> = ({ currentSection, totalSections, onSectionChang
                             <button onClick={() => navHandler(3)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn md:text-lg'>&lt;Contact/&gt;</button>
                         </div>
                         <div className='flex justify-center'>
-                            <button className='resume-button mr-0 p-2 border rounded-xl text-green border-green shadow-greenrounded-2xl md:text-lg'>
-                                Resume
-                            </button>
+                            <a href="https://ik.imagekit.io/6sicju8qu/cv.pdf?updatedAt=1693069395988" target="_blank" rel="noopener noreferrer">
+                                <button className='resume-button mr-0 p-2 border rounded-xl text-green border-green shadow-greenrounded-2xl md:text-lg'>
+                                    Resume
+                                </button>
+                            </a>
                         </div>
                     </div>
                 )
