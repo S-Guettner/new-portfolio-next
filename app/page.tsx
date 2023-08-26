@@ -24,10 +24,10 @@ export default function Home() {
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
 
-    // Set the value initially
+    
     setVH();
 
-    // Update it whenever the window is resized
+    // Update VH
     window.addEventListener('resize', setVH);
 
     const container = document.getElementById("fullpage-container") as HTMLElement;

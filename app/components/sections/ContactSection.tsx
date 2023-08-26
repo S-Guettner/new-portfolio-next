@@ -1,5 +1,5 @@
 'use client'
-import { FC,useRef,useState } from 'react'
+import { FC, useRef, useState } from 'react'
 import axios from 'axios'
 
 interface ContactSectionProps {
@@ -7,7 +7,7 @@ interface ContactSectionProps {
 }
 
 const ContactSection: FC<ContactSectionProps> = ({ }) => {
-    
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -17,6 +17,9 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
     const [submitting, setSubmitting] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
+
+    const [errorMessage, setErrorMessage] = useState("")
+    const [errorClass, setErrorClass] = useState("border-2 border-red-400")
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
@@ -29,22 +32,34 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
         e.preventDefault();
         setSubmitting(true);
 
-        try {
-            const response = await axios.post('/api/send', formData);
-            if (response.status === 200) {
-                setSuccess(true);
-            } else {
-                setError('Failed to send message.');
+
+        if (formData.name.length === 0 || formData.email.length === 0 || formData.message.length === 0) {
+            formData.name.length === 0 ? setErrorMessage("Name missing") :
+                formData.email.length === 0 ? setErrorMessage("Email missing") :
+                    formData.message.length === 0 ? setErrorMessage("Message missing") :
+                        setErrorMessage("")
+
+        } else {
+            try {
+                const response = await axios.post('/api/send', formData);
+                if (response.status === 200) {
+                    setSuccess(true);
+                } else {
+                    setError('Failed to send message.');
+                }
+            } catch (err) {
+                setError('An error occurred.');
+            } finally {
+                setSubmitting(false);
             }
-        } catch (err) {
-            setError( 'An error occurred.');
-        } finally {
-            setSubmitting(false);
+
         }
+
+
     }
 
-    
-    
+
+
     return (
         <main className='h-vh100 bg-background'>
 
@@ -60,12 +75,16 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
                 <section>
                     <form className='flex flex-col items-center gap-y-1 mb-4' onSubmit={handleSubmit} >
                         <label className='block text-textLarge text-center' htmlFor="name">Name</label>
-                        <input onChange={handleChange} value={formData.name} className='w-3/4 rounded-2xl p-2 bg-text navButton' type="text" name="name" id="name" />
+                        <input onChange={handleChange} value={formData.name} className={`w-3/4 rounded-2xl p-2 border border-green focus:outline-none  bg-text navButton ${errorMessage === "Name missing" ? errorClass : ""}`} type="text" name="name" id="name" />
                         <label className='block text-textLarge text-center' htmlFor="email">Email</label>
-                        <input onChange={handleChange} value={formData.email} className='w-3/4 rounded-2xl p-2 navButton bg-text' type="email" name="email" id="email" />
+                        <input onChange={handleChange} value={formData.email} className={`w-3/4 rounded-2xl p-2 border border-green focus:outline-none navButton bg-text ${errorMessage === "Email missing" ? errorClass : ""}`} type="email" name="email" id="email" />
                         <label className='block text-textLarge text-center' htmlFor="message">Message</label>
-                        <textarea onChange={handleChange} value={formData.message} className='rounded-2xl navButton bg-text mb-5 w-3/4' name="message" id="message" cols={33} rows={5}></textarea>
-                        <button className='border border-green text-green py-2 px-10 rounded-2xl resume-button' type="submit" >Submit</button>
+                        <textarea onChange={handleChange} value={formData.message} className={`rounded-2xl p-2 navButton border border-green focus:outline-none bg-text mb-5 w-3/4 ${errorMessage === "Message missing" ? errorClass : ""}`} name="message" id="message" cols={33} rows={5}></textarea>
+                        {errorMessage && (
+                            <p className='text-red-500 mb-5'>"{errorMessage}"</p>
+
+                        )}
+                        <button className='border border-green text-green py-2 px-10 rounded-2xl resume-button navButton' type="submit" >Submit</button>
                     </form>
                 </section>
                 <p className='text-green pl-6 '>&lt;/form&gt;</p>
