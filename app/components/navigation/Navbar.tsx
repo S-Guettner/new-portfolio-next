@@ -59,13 +59,13 @@ const Navbar: FC<NavbarProps> = ({ currentSection, totalSections, onSectionChang
             {menuStatus && (
                 <div className={` text-center fadeIn bg-background border border-green p-2 rounded-3xl m-2`}>
                     <div className=' flex justify-evenly gap-4 right-0 top-10  rounded-b-3xl p-5 border-green'>
-                        <p onClick={() => navHandler(0)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;About/&gt;</p>
-                        <p onClick={() => navHandler(1)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Skills/&gt;</p>
-                        <p onClick={() => navHandler(2)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Projects/&gt;</p>
-                        <p onClick={() => navHandler(3)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn'>&lt;Contact/&gt;</p>
+                        <p onClick={() => navHandler(0)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn md:text-lg'>&lt;About/&gt;</p>
+                        <p onClick={() => navHandler(1)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn md:text-lg'>&lt;Skills/&gt;</p>
+                        <p onClick={() => navHandler(2)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn md:text-lg'>&lt;Projects/&gt;</p>
+                        <p onClick={() => navHandler(3)} className='hover-underline-animation  cursor-pointer text-green slideFadeIn md:text-lg'>&lt;Contact/&gt;</p>
                     </div>
                     <div className='flex justify-center'>
-                        <button className='resume-button mr-0 p-2 border rounded-xl text-green border-green shadow-greenrounded-2xl '>
+                        <button className='resume-button mr-0 p-2 border rounded-xl text-green border-green shadow-greenrounded-2xl md:text-lg'>
                             Resume
                         </button>
                     </div>

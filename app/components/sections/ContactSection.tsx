@@ -15,7 +15,7 @@ const ContactSection: FC<ContactSectionProps> = ({ }) => {
     });
 
     const [submitting, setSubmitting] = useState(false);
-    const [success, setSuccess] = useState(true);
+    const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
 
     const [errorMessage, setErrorMessage] = useState("")
