@@ -33,7 +33,7 @@ const SkillsSection: FC<SkillsSectionProps> = ({ currentSection }) => {
             <section className='text-white absolute pt-3 md:p-20 md:pt-2'>
                 <section className='p-4 pb-0 mb-4 '>
                     <p className='text-green mb-2 md:text-lg md:mb-4'>&lt;Skills&gt;</p>
-                    <h1 className='text-textLarge text-2xl mb-1 font-bold pl-4 md:text-[2.5rem] md:mb-4'><span className='text-green '>&lt;</span>Coding Craftsmanship <span className='text-green'>/&gt;</span> </h1>
+                    <h1 className='text-textLarge text-2xl mb-1 font-bold pl-4 md:text-[2rem] md:mb-4'><span className='text-green '>&lt;</span>Coding Craftsmanship <span className='text-green'>/&gt;</span> </h1>
                     <p className='text-green pl-4 md:text-lg '>&lt;Technologies&gt;</p>
                     <div className='text-text '>
                         <div className='flex justify-evenly w-3/4 gap-x-9 gap-y-3 mx-auto flex-wrap pt-5 mb-3 text-textLarge md:gap-y-10 md:py-10'>

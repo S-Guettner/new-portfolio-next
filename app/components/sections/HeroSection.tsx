@@ -26,7 +26,7 @@ const HeroSection: FC<HeroSectionProps> = ({ currentSection, totalSections, onSe
             <section className='p-4 pb-0 mb-4 md:p-20 '>
                 <p className='text-green mb-2 md:text-lg'>&lt;About&gt;</p>
                 <p className=' text-green pl-4 mb-1 md:text-xl md:mb-3'>Hi, my name is</p>
-                <h1 className='text-textLarge text-3xl mb-1 font-bold pl-4 md:text-[2.5rem] md:mb-5'><span className='text-green '>&lt;</span>Sven Güttner <span className='text-green'>/&gt;</span> </h1>
+                <h1 className='text-textLarge text-3xl mb-1 font-bold pl-4 md:text-[2rem] md:mb-5'><span className='text-green '>&lt;</span>Sven Güttner <span className='text-green'>/&gt;</span> </h1>
                 <p className='text-green pl-6 md:text-lg'>&lt;p&gt;</p>
                 <div className='text-text'>
                     <p className='pl-8 md:text-[1.5rem] md:px-20'>I am a web developer who loves to tackle new challenges and is constantly on a learning journey. My goal is to not just build websites, but to create experiences that resonate with users.</p>
