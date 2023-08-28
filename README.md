@@ -13,6 +13,6 @@ Hello! 👋 I'm Sven, a passionate frontend developer dedicated to crafting eleg
 
 ## Connect with Me 🌐
 
-- **Portfolio**: [(not deployed yet)]
+- **Portfolio**: (https://www.sven-guettner.dev/)
 - **LinkedIn**: https://www.linkedin.com/in/sven-g%C3%BCttner-335739162/
 - **Email**: sven_guettner@protonmail.com
